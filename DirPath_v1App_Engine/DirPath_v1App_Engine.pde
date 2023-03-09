@@ -1,13 +1,28 @@
-/* CAUTION, code not finished
- Also see Music SubProgram
+/* CAUTION Sandbox
+ This code will cause the array songs to be null sometimes.
+ This must be error checked
  */
+//
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+//
 //Global Variables
 String path = new File("").getAbsolutePath(); //Exported Program
 //CAUTION: GitHub must be linked to the C-Drive instead of FS ... This might need a lesson
-String directory = "C:/Users/ALI/Documents/GitHub/MusicAppButtonsPlayerTogather/App_Engine"; //Not Exported
+String directory = "C:/Users/ALI/Documents/GitHub/MusicAppButtonsPlayerTogather/DirPath_v1App_Engine"; //Not Exported
 //Reminder: \n is a character escape, so pathway must have forward slashes
 //
-void setupOS_Level() {
+Minim minim; //creates an object to access all functions
+AudioPlayer[] songs = new AudioPlayer[16]; //creates "Play List" variable holding extensions WAV, AIFF, AU, SND, and MP3
+//
+void setup() {
+  //
+  minim = new Minim (this); //load from data directory, loadFile should also load from project folder, like loadImage
+  //
   File anyDirectory = new File(path); //Used when exported
   println ("Exported Directory", anyDirectory);
   File githubDirectory = new File(directory); //Used when prototyping
@@ -39,6 +54,16 @@ void setupOS_Level() {
       }
     }
   } //Catch when Pathway NULL, not exported
-} //End setupOS_Level
+  songs[0].loop(0); //Change the index manually
+}//End setup
 //
-//End Operating System Subprogram
+void draw() {
+}//End draw
+//
+void keyPressed() {
+}//End keyPressed
+//
+void mousePressed() {
+}//End mousePressed
+//
+//End MAIN Program
